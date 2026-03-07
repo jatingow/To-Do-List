@@ -214,6 +214,7 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
     border-left: 5px solid var(--primary-color);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: all var(--transition-speed) ease;
@@ -238,7 +239,7 @@ li:hover {
 li.completed {
     background: rgba(0, 0, 0, 0.4);
     border-left-color: var(--text-secondary);
-    opacity: 0.8;
+    opacity: 1.8;
 }
 
 /* --- Action Buttons (Complete/Delete) --- */
@@ -265,6 +266,7 @@ li.completed {
 /* Complete Button */
 .complete-btn {
     background: linear-gradient(90deg, #10b981, #34d399);
+    text-align: left;
 }
 
 .complete-btn:hover {
