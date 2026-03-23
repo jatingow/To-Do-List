@@ -1,3 +1,2 @@
 ﻿# To-Do-List
-This is a to-do list that is in the works
-
+This is a simple to-do list that uses HTML, CSS and JavaScript
