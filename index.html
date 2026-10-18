@@ -4,19 +4,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-do List</title>
+  <title>To-Do App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Space+Grotesk:wght@600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="tolist.css" />
 </head>
 
 <body>
-  <div class="container">
-    <h1> To-Do List </h1>
-    <div class="task-input-container">
-      <input type="text" id="taskInput" placeholder="Add a new task" />
-      <button onclick="addTask()">Add</button>
-    </div>
-    <ul id="taskList"></ul>
+  <div class="neo-background-shapes" aria-hidden="true">
+    <div class="shape shape-circle"></div>
+    <div class="shape shape-square"></div>
+    <div class="shape shape-star">✦</div>
+    <div class="shape shape-cross">✕</div>
+    <div class="shape shape-zigzag">★</div>
   </div>
+
+  <main class="container">
+    <header class="app-header">
+      <div class="tag-badge">
+        <span class="badge-icon">⚡</span>
+        <span>NEO-BRUTALISM BI*CH</span>
+      </div>
+      <h1 class="main-title">GET SH*T DONE</h1>
+      <p class="subtitle">Crush your daily goals with ruthless efficiency.</p>
+    </header>
+
+    <!-- Stats & Progress -->
+    <section class="stats-card">
+      <div class="stat-box stat-total">
+        <span class="stat-number" id="totalCount">0</span>
+        <span class="stat-label">Total</span>
+      </div>
+      <div class="stat-box stat-pending">
+        <span class="stat-number" id="pendingCount">0</span>
+        <span class="stat-label">Pending</span>
+      </div>
+      <div class="stat-box stat-done">
+        <span class="stat-number" id="doneCount">0</span>
+        <span class="stat-label">Done</span>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="progressBar" style="width: 0%;"></div>
+        </div>
+        <span class="progress-text" id="progressPercent">0%</span>
+      </div>
+    </section>
+
+    <!-- Task Input Form -->
+    <section class="task-input-section">
+      <div class="task-input-container">
+        <input type="text" id="taskInput" placeholder="Type a task and hit Enter..." autocomplete="off"
+          maxlength="120" />
+        <button id="addBtn" onclick="addTask()">
+          <span class="btn-text">ADD</span>
+          <span class="btn-icon">+</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Filter & Bulk Actions Bar -->
+    <section class="controls-bar">
+      <div class="filter-group" role="tablist">
+        <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All</button>
+        <button class="filter-btn" data-filter="active" onclick="setFilter('active')">Active</button>
+        <button class="filter-btn" data-filter="completed" onclick="setFilter('completed')">Done</button>
+      </div>
+      <button class="clear-btn" id="clearCompletedBtn" onclick="clearCompleted()">
+        Clear Done
+      </button>
+    </section>
+
+    <!-- Task List -->
+    <section class="task-list-section">
+      <ul id="taskList"></ul>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-state hidden">
+        <div class="empty-icon">🏖️</div>
+        <h3 class="empty-title">All Caught Up!</h3>
+        <p class="empty-subtitle">No tasks in sight. Enjoy the calm or create a new mission.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <span class="storage-indicator">
+        <span class="indicator-dot"></span> Saved to LocalStorage
+      </span>
+      <span class="tip">Tip: Press <strong>Enter</strong> to quickly add</span>
+    </footer>
+  </main>
+
+  <canvas id="confettiCanvas"></canvas>
   <script src="Toscript.js"></script>
 </body>
 
