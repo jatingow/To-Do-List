@@ -220,16 +220,14 @@ function updateStats() {
   }
 }
 
-// Keyboard shortcuts
 input.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     addTask();
   }
 });
 
-// ==========================================================================
-// LIGHTWEIGHT NEO-BRUTALIST CONFETTI EFFECT
-// ==========================================================================
+// NEO-BRUTALIST CONFETTI EFFECT
+
 function launchConfetti() {
   const canvas = document.getElementById("confettiCanvas");
   if (!canvas) return;
@@ -305,7 +303,6 @@ window.addEventListener("resize", () => {
   }
 });
 
-// App Initialization
 window.addEventListener("DOMContentLoaded", () => {
   loadTasks();
   renderTasks();
