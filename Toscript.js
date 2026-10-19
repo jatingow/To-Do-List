@@ -1,7 +1,3 @@
-// ==========================================================================
-// NEO-BRUTALIST TO-DO LIST (LocalStorage Powered)
-// ==========================================================================
-
 const STORAGE_KEY = "neo_tasks_list";
 
 const input = document.getElementById("taskInput");
@@ -187,13 +183,13 @@ function renderTasks() {
     emptyState.classList.remove("hidden");
     if (tasks.length > 0 && currentFilter !== "all") {
       emptyState.querySelector(".empty-title").textContent = "No tasks found";
-      emptyState.querySelector(".empty-subtitle").textContent = 
-        currentFilter === "active" 
-          ? "No active tasks! You're either resting or done." 
+      emptyState.querySelector(".empty-subtitle").textContent =
+        currentFilter === "active"
+          ? "No active tasks! You're either resting or done."
           : "No completed tasks yet. Finish something!";
     } else {
       emptyState.querySelector(".empty-title").textContent = "All Caught Up!";
-      emptyState.querySelector(".empty-subtitle").textContent = 
+      emptyState.querySelector(".empty-subtitle").textContent =
         "No tasks in sight. Enjoy the calm or create a new mission.";
     }
   } else {
@@ -238,7 +234,7 @@ function launchConfetti() {
   const canvas = document.getElementById("confettiCanvas");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
-  
+
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
