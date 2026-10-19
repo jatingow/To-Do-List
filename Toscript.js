@@ -17,39 +17,19 @@ const progressPercentEl = document.getElementById("progressPercent");
 let currentFilter = "all";
 let tasks = [];
 
-// Initial default tasks if localStorage is empty
-const DEFAULT_TASKS = [
-  {
-    id: "task-1",
-    name: "Design neo-brutalism aesthetic 🔥",
-    completed: true,
-    createdAt: Date.now() - 3600000
-  },
-  {
-    id: "task-2",
-    name: "Store tasks in localStorage ⚡",
-    completed: true,
-    createdAt: Date.now() - 1800000
-  },
-  {
-    id: "task-3",
-    name: "Conquer the day and tick everything off! 🚀",
-    completed: false,
-    createdAt: Date.now()
-  }
-];
-
 // Load tasks from LocalStorage
 function loadTasks() {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
-      tasks = JSON.parse(stored);
+      // Filter out any leftover sample/default tasks
+      tasks = JSON.parse(stored).filter(
+        t => t.id !== "task-1" && t.id !== "task-2" && t.id !== "task-3"
+      );
     } else {
-      // First visit: initialize with starter tasks
-      tasks = [...DEFAULT_TASKS];
-      saveTasks();
+      tasks = [];
     }
+    saveTasks();
   } catch (error) {
     console.error("Failed to load tasks from localStorage:", error);
     tasks = [];
